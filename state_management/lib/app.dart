@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'pages/cubit_page.dart';
 import 'pages/provider_page.dart';
-// import 'pages/todo_page.dart';
+import 'pages/todo_page.dart';
 import 'pages/vanilla_page.dart';
 
 class App extends StatelessWidget {
@@ -40,10 +40,10 @@ class App extends StatelessWidget {
                   'Todo App',
                   style: Theme.of(context).textTheme.headline4,
                 ),
-                // ElevatedButton(
-                //   child: Text('Todo App'),
-                //   onPressed: () => Navigator.pushNamed(context, '/todo'),
-                // ),
+                ElevatedButton(
+                  child: Text('Todo App'),
+                  onPressed: () => Navigator.pushNamed(context, '/todo'),
+                ),
               ],
             ),
           ),
@@ -53,7 +53,7 @@ class App extends StatelessWidget {
         '/vanilla': (context) => VanillaCounterPage(),
         '/provider': (context) => ProviderCounterPage(),
         '/cubit': (context) => CubitCounterPage(),
-        // '/todo': (context) => TodoPage(),
+        '/todo': (context) => TodoPage(),
       },
     );
   }
