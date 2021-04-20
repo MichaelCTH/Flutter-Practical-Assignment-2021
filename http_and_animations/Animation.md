@@ -1,6 +1,6 @@
 # Animations
 
-### Which tool should I used?
+### Which tool should I use?
 
 - Drawing Animation?
     - [Flare](https://pub.dev/packages/flare_flutter) 
