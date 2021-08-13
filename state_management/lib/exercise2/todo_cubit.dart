@@ -20,12 +20,27 @@ class TodoCubit extends Cubit<TodoState> {
     );
   }
 
-  /// @TODO: Add a todo item
-  void add(TodoModel todo) {}
+  void add(TodoModel todo) {
+    int max = 0;
+    if (todo.id.isEmpty) {
+      state.data.forEach((element) {
+        max = int.parse(element.id.replaceAll('id-', ''));
+      });
+      var newOne =
+          TodoModel(id: 'id-' + (max + 1).toString(), title: todo.title);
+      state.data.add(newOne);
+      return;
+    }
+    state.data.add(todo);
+  }
 
-  /// @TODO: Remove a todo item by index
-  void remove(int index) {}
+  void remove(int index) {
+    state.data.removeAt(index);
+  }
 
-  /// @TODO: Toggle a todo item's complete status
-  void toggle(int index) {}
+  void toggle(int index) {
+    var item = state.data[index];
+    state.data[index] =
+        TodoModel(id: item.id, title: item.title, completed: !item.completed);
+  }
 }

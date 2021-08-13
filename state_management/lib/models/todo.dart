@@ -5,13 +5,14 @@ class TodoModel extends Equatable {
   final String title;
   final bool completed;
 
-  const TodoModel({this.id, this.title, this.completed = false});
+  const TodoModel({this.id = '', this.title = '', this.completed = false});
 
-  TodoModel copyWith({String id, String title, bool completed}) {
+  TodoModel copyWith(
+      {String id = '', String title = '', required bool completed}) {
     return TodoModel(
-      id: id ?? this.id,
-      title: title ?? this.title,
-      completed: completed ?? this.completed,
+      id: this.id,
+      title: this.title,
+      completed: this.completed,
     );
   }
 

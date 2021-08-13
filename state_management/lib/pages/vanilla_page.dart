@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class VanillaCounterPage extends StatefulWidget {
-  VanillaCounterPage({Key key}) : super(key: key);
+  VanillaCounterPage({Key? key}) : super(key: key);
 
   @override
   _VanillaCounterPageState createState() => _VanillaCounterPageState();

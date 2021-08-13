@@ -7,19 +7,19 @@ class TodoState extends Equatable {
 
   /// Return a TOTALLY new [TodoState]
   TodoState copyWith(List<TodoModel> data) {
-    return TodoState(data: data ?? this.data);
+    return TodoState(data: this.data);
   }
 
   TodoState add(TodoModel todo) {
-    /// @TODO: Finish this add method
+    return TodoState(data: this.data);
   }
 
   TodoState remove(int index) {
-    /// @TODO: Finish this [remove] method
+    return TodoState(data: this.data);
   }
 
   TodoState toggle(int index, bool completed) {
-    /// @TODO: Finish this [toggle] method
+    return TodoState(data: this.data);
   }
 
   /// Will rewrite operator == by [Equatable]

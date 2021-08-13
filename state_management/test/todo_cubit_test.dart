@@ -7,12 +7,12 @@ void main() {
     'It should initialze cubit successsfully',
     build: () => TodoCubit(),
     act: (cubit) => cubit.init(),
-    expect: [
+    expect: () => [
       TodoState(data: <TodoModel>[
         TodoModel(id: 'id-0', title: 'Todo 0'),
         TodoModel(id: 'id-1', title: 'Todo 1'),
         TodoModel(id: 'id-2', title: 'Todo 2'),
-      ]),
+      ])
     ],
   );
 
@@ -20,12 +20,12 @@ void main() {
     'It should add todo successsfully',
     build: () => TodoCubit(),
     act: (cubit) => cubit.add(TodoModel(title: 'Mock Title')),
-    seed: TodoState(data: <TodoModel>[
+    seed: () => TodoState(data: <TodoModel>[
       TodoModel(id: 'id-0', title: 'Todo 0'),
       TodoModel(id: 'id-1', title: 'Todo 1'),
       TodoModel(id: 'id-2', title: 'Todo 2'),
     ]),
-    expect: [
+    expect: () => [
       TodoState(data: <TodoModel>[
         TodoModel(id: 'id-0', title: 'Todo 0'),
         TodoModel(id: 'id-1', title: 'Todo 1'),
@@ -39,12 +39,12 @@ void main() {
     'It should remove todo successsfully',
     build: () => TodoCubit(),
     act: (cubit) => cubit.remove(1),
-    seed: TodoState(data: <TodoModel>[
+    seed: () => TodoState(data: <TodoModel>[
       TodoModel(id: 'id-0', title: 'Todo 0'),
       TodoModel(id: 'id-1', title: 'Todo 1'),
       TodoModel(id: 'id-2', title: 'Todo 2'),
     ]),
-    expect: [
+    expect: () => [
       TodoState(data: <TodoModel>[
         TodoModel(id: 'id-0', title: 'Todo 0'),
         TodoModel(id: 'id-2', title: 'Todo 2'),
@@ -56,12 +56,12 @@ void main() {
     'It should toggle todo successsfully',
     build: () => TodoCubit(),
     act: (cubit) => cubit.toggle(1),
-    seed: TodoState(data: <TodoModel>[
+    seed: () => TodoState(data: <TodoModel>[
       TodoModel(id: 'id-0', title: 'Todo 0'),
       TodoModel(id: 'id-1', title: 'Todo 1'),
       TodoModel(id: 'id-2', title: 'Todo 2'),
     ]),
-    expect: [
+    expect: () => [
       TodoState(data: <TodoModel>[
         TodoModel(id: 'id-0', title: 'Todo 0'),
         TodoModel(id: 'id-1', title: 'Todo 1', completed: true),
