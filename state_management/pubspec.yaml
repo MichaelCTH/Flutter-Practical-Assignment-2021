@@ -12,13 +12,14 @@ dependencies:
   equatable: ^2.0.3
   provider: 5.0.0
   flutter_bloc: ^7.1.0
-  uuid: 2.2.2
+  uuid: ^3.0.4
   cupertino_icons: ^1.0.0
-  mockito: ^4.1.2
+  mockito: ^5.0.14
+  crypto: ^3.0.0
 
 dev_dependencies:
   bloc_test: ^8.1.0
-  test_api: ^0.2.19-nullsafety
+  test_api: ^0.4.2
 
 
 flutter:

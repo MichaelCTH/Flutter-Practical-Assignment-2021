@@ -1,6 +1,10 @@
 library todo_cubit;
 
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../models/todo.dart';
@@ -8,7 +12,7 @@ import '../models/todo.dart';
 part 'todo_state.dart';
 
 class TodoCubit extends Cubit<TodoState> {
-  TodoCubit() : super(TodoState());
+  TodoCubit() : super(TodoState(data: []));
 
   void init() {
     emit(
@@ -21,26 +25,22 @@ class TodoCubit extends Cubit<TodoState> {
   }
 
   void add(TodoModel todo) {
-    int max = 0;
-    if (todo.id.isEmpty) {
-      state.data.forEach((element) {
-        max = int.parse(element.id.replaceAll('id-', ''));
-      });
-      var newOne =
-          TodoModel(id: 'id-' + (max + 1).toString(), title: todo.title);
-      state.data.add(newOne);
-      return;
-    }
-    state.data.add(todo);
+    // state.add(todo);
+
+    emit(state.add(todo));
   }
 
   void remove(int index) {
-    state.data.removeAt(index);
+    emit(state.remove(index));
   }
 
   void toggle(int index) {
-    var item = state.data[index];
-    state.data[index] =
-        TodoModel(id: item.id, title: item.title, completed: !item.completed);
+    emit(state.toggle(index));
+  }
+
+  @override
+  void onChange(Change<TodoState> change) {
+    print('current state : ' + change.currentState.toString());
+    super.onChange(change);
   }
 }
