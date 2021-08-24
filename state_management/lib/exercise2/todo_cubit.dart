@@ -1,6 +1,10 @@
 library todo_cubit;
 
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../models/todo.dart';
@@ -8,7 +12,7 @@ import '../models/todo.dart';
 part 'todo_state.dart';
 
 class TodoCubit extends Cubit<TodoState> {
-  TodoCubit() : super(TodoState());
+  TodoCubit() : super(TodoState(data: []));
 
   void init() {
     emit(
@@ -20,12 +24,23 @@ class TodoCubit extends Cubit<TodoState> {
     );
   }
 
-  /// @TODO: Add a todo item
-  void add(TodoModel todo) {}
+  void add(TodoModel todo) {
+    // state.add(todo);
 
-  /// @TODO: Remove a todo item by index
-  void remove(int index) {}
+    emit(state.add(todo));
+  }
 
-  /// @TODO: Toggle a todo item's complete status
-  void toggle(int index) {}
+  void remove(int index) {
+    emit(state.remove(index));
+  }
+
+  void toggle(int index) {
+    emit(state.toggle(index));
+  }
+
+  @override
+  void onChange(Change<TodoState> change) {
+    print('current state : ' + change.currentState.toString());
+    super.onChange(change);
+  }
 }

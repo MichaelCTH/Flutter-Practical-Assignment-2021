@@ -8,11 +8,36 @@ class Exercise1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appbar = AppBar(
+      title: Text(title),
+    );
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
+      appBar: appbar,
+      body: Container(
+        child: Column(
+          children: [
+            Flexible(
+              flex: 1,
+              child: Container(
+                color: Colors.green,
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                color: Colors.yellow,
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Container(
+                color: Colors.pink,
+              ),
+            ),
+          ],
+        ),
       ),
-      body: null,
     );
   }
 }

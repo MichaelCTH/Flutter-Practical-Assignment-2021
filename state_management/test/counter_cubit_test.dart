@@ -6,14 +6,14 @@ void main() {
     'It should increment counter',
     build: () => CounterCubit(),
     act: (cubit) => cubit.increment(),
-    expect: [1],
+    expect: () => [1],
   );
 
   blocTest<CounterCubit, int>(
     'It should increment counter when initial value is 6',
     build: () => CounterCubit(),
-    seed: 6,
+    seed: () => 6,
     act: (cubit) => cubit.increment(),
-    expect: [7],
+    expect: () => [7],
   );
 }
